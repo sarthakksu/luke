@@ -45,16 +45,16 @@ class InputFeatures(object):
 
 class CoNLLProcessor(object):
     def get_train_examples(self, data_dir):
-        return list(self._create_examples(self._read_data(os.path.join(data_dir, "eng.train")), "train"))
+        return list(self._create_examples(self._read_data(os.path.join(data_dir, "train.txt")), "train"))
 
     def get_dev_examples(self, data_dir):
-        return list(self._create_examples(self._read_data(os.path.join(data_dir, "eng.testa")), "dev"))
+        return list(self._create_examples(self._read_data(os.path.join(data_dir, "val.txt")), "dev"))
 
     def get_test_examples(self, data_dir):
-        return list(self._create_examples(self._read_data(os.path.join(data_dir, "eng.testb")), "test"))
+        return list(self._create_examples(self._read_data(os.path.join(data_dir, "test.txt")), "test"))
 
     def get_labels(self):
-        return ["NIL", "MISC", "PER", "ORG", "LOC"]
+        return ['O','STR','STA','CONTR','NCT','LB','LWB','REG','OTH']
 
     def _read_data(self, input_file):
         data = []
